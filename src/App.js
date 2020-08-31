@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+// import Person from './Person';
+import People from './People';
+import Person from './Person';
+import { usePerson } from './person.hook';
+import { personContext } from './person.context';
+
 
 function App() {
+  const person = usePerson();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <personContext.Provider value={person}>
+      <Router>
+        <Switch>
+          <Route path="/people">
+            <People />
+          </Route>
+          <Route path="/person">
+            <Person />
+          </Route>
+        </Switch>
+      </Router>
+    </personContext.Provider>
   );
 }
 
