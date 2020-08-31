@@ -48,8 +48,8 @@ describe('Component: People', () => {
         response: swapiResponse
       });
     });
-    await waitFor(() => screen.getByText('test mctestyface'));
-    const rows = await screen.findAllByRole('row');
+    await waitFor(() => screen.getByText('name: test mctestyface'));
+    const rows = await screen.findAllByRole('button');
     expect(rows.length).toEqual(3);
   })
 });
