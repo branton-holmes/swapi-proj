@@ -22,9 +22,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "jest": {
-    "testEnvironment": "jest-environment-jsdom-sixteen"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
