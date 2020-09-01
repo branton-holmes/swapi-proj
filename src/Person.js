@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import swapiService from './swapiService';
 import { personContext } from './person.context';
+import { StyledContainer, StyledRow, FlexContainer } from './People';
 
 const People = () => {
   const [films, setFilms] = useState([]);
@@ -25,23 +26,27 @@ const People = () => {
   }
 
   return (
-    <div>
+    <StyledContainer>
       <h1>Person:</h1>
-      <p>name: {person.name}</p>
-      <p>gender: {person.gender}</p>
-      <p>birth year: {person.birth_year}</p>
-      <p>height: {person.height}</p>
-      <p>mass: {person.mass}</p>
+      <StyledRow>
+        <p>name: {person.name}</p>
+        <p>gender: {person.gender}</p>
+        <p>birth year: {person.birth_year}</p>
+        <p>height: {person.height}</p>
+        <p>mass: {person.mass}</p>
+      </StyledRow>
       <h1>Films:</h1>
+      <FlexContainer>
       {films.map(film => (
-        <div key={film.title}>
+        <StyledRow key={film.title}>
           <p>title: {film.title}</p>
           <p>release date: {film.release_date}</p>
           <p>producer: {film.producer}</p>
           <p>director: {film.director}</p>
-        </div>
+        </StyledRow>
       ))}
-    </div>
+      </FlexContainer>
+    </StyledContainer>
   )
 };
 
